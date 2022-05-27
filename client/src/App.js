@@ -3,6 +3,7 @@ import "./index.css";
 import React, { useState } from "react";
 import FormPage from "./components/Form";
 import Wardrobe from "./components/Wardrobe";
+import SuggestionsForm from "./components/SuggestionsForm";
 
 function App() {
   const [myWardrobe, setMyWardrobe] = useState(true);
@@ -19,21 +20,28 @@ function App() {
             <div className="col justify-content-md-center ">
               <h1 className="heading-font mt-3"> Slow Down Fashion</h1>
             </div>
-
-            <div className="col nav justify-content-end">
-              <button
-                className={myWardrobe ? "btn btn-dark" : "btn btn-light"}
-                onClick={() => handleWardrobeView(true)}
-              >
-                My Wardrobe
-              </button>
-              <button
-                className={!myWardrobe ? "btn btn-dark" : "btn btn-light"}
-                onClick={() => handleWardrobeView(false)}
-              >
-                Add item
-              </button>
-            </div>
+            <nav>
+              <div className="col nav justify-content-end">
+                <button
+                  className={myWardrobe ? "btn btn-dark" : "btn btn-light"}
+                  onClick={() => handleWardrobeView(true)}
+                >
+                  My Wardrobe
+                </button>
+                <button
+                  className={!myWardrobe ? "btn btn-dark" : "btn btn-light"}
+                  onClick={() => handleWardrobeView(false)}
+                >
+                  Add item
+                </button>
+                <button
+                  className={!myWardrobe ? "btn btn-dark" : "btn btn-light"}
+                  onClick={() => handleWardrobeView(false)}
+                >
+                  Brand Suggestions
+                </button>
+              </div>
+            </nav>
           </div>
         </div>
 
@@ -51,6 +59,7 @@ function App() {
           </div>
         </div>
         {!myWardrobe ? <FormPage /> : <Wardrobe />}
+        <SuggestionsForm />
       </body>
     </div>
   );

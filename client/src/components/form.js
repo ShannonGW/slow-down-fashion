@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "../App.css";
 
 function Form() {
-  const [category, setCategory] = useState("jacket");
+  // const [category, setCategory] = useState("jacket");
+  const [category, setCategory] = useState("");
 
   const [image, setImage] = useState("");
 
