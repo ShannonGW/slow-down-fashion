@@ -6,10 +6,18 @@ import Wardrobe from "./components/Wardrobe";
 import SuggestionsForm from "./components/SuggestionsForm";
 
 function App() {
-  const [myWardrobe, setMyWardrobe] = useState(true);
+  //----original code-----/
+  // const [myWardrobe, setMyWardrobe] = useState(true);
 
-  const handleWardrobeView = (myWardrobe) => {
-    setMyWardrobe(myWardrobe);
+  // const handleWardrobeView = (myWardrobe) => {
+  //   setMyWardrobe(myWardrobe);
+  // };
+
+  const [toggleState, setToggleState] = useState(1);
+
+  const toggleTab = (index) => {
+    setToggleState(index); //setting state with the index of the tabs
+    console.log("toggleTab", index);
   };
 
   return (
@@ -18,25 +26,38 @@ function App() {
         <div className="container">
           <div className="row">
             <div className="col justify-content-md-center ">
-              <h1 className="heading-font mt-3"> Slow Down Fashion</h1>
+              {/* HEADING */}
+              <h1 className="heading-font mt-3">Slow Down Fashion</h1>
             </div>
             <nav>
               <div className="col nav justify-content-end">
                 <button
-                  className={myWardrobe ? "btn btn-dark" : "btn btn-light"}
-                  onClick={() => handleWardrobeView(true)}
+                  // className={myWardrobe ? "btn btn-dark" : "btn btn-light"}
+                  // onClick={() => handleWardrobeView(true)}
+                  className={
+                    toggleState === 1 ? "btn btn-dark" : "btn btn-light" //if index is 1 (tab 1), dark button --just changes button color
+                  }
+                  onClick={() => toggleTab(1)} //on click, toggletab func is run which sets state by button's index
                 >
                   My Wardrobe
                 </button>
                 <button
-                  className={!myWardrobe ? "btn btn-dark" : "btn btn-light"}
-                  onClick={() => handleWardrobeView(false)}
+                  // className={!myWardrobe ? "btn btn-dark" : "btn btn-light"}
+                  // onClick={() => handleWardrobeView(false)}
+                  className={
+                    toggleState === 2 ? "btn btn-dark" : "btn btn-light"
+                  }
+                  onClick={() => toggleTab(2)}
                 >
                   Add item
                 </button>
                 <button
-                  className={!myWardrobe ? "btn btn-dark" : "btn btn-light"}
-                  onClick={() => handleWardrobeView(false)}
+                  // className={!myWardrobe ? "btn btn-dark" : "btn btn-light"}
+                  // onClick={() => handleWardrobeView(false)}
+                  className={
+                    toggleState === 3 ? "btn btn-dark" : "btn btn-light"
+                  }
+                  onClick={() => toggleTab(3)}
                 >
                   Brand Suggestions
                 </button>
@@ -54,12 +75,17 @@ function App() {
                 existing clothes
               </p>
             </div>
-            {/* </div> */}
-            <div className="col col-lg-2"></div>
+
+            <div className="col col-lg-2">
+              {/* {toggleState === 1 ? <Wardrobe /> : <FormPage />} */}
+              {toggleState === 1 && <Wardrobe />}
+              {toggleState === 2 && <FormPage />}
+              {toggleState === 3 && <SuggestionsForm />}
+            </div>
           </div>
         </div>
-        {!myWardrobe ? <FormPage /> : <Wardrobe />}
-        <SuggestionsForm />
+
+        {/* {!myWardrobe ? <FormPage /> : <Wardrobe />} */}
       </body>
     </div>
   );
