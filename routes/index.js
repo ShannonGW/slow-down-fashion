@@ -34,19 +34,25 @@ router.get("/wardrobe/item/:clothesCategory", function (req, res, next) {
     .catch((err) => res.status(500).send(err));
 });
 
-router.post("/wardrobe", function (req, res, next) {
-  console.log(req.body, "is the body");
-  db(
-    `INSERT INTO wardrobe (clothesCategory, clothesImage) VALUES ("${req.body.clothesCategory}", "${req.body.clothesImage}");`
-  )
-    .then((results) => res.send(results.data))
-    .catch((err) => res.status(500).send(err.message));
-});
+// router.post("/wardrobe", function (req, res, next) {
+//   console.log(req.body, "is the body");
+//   db(
+//     `INSERT INTO wardrobe (clothesCategory, clothesImage) VALUES ("${req.body.clothesCategory}", "${req.body.clothesImage}");`
+//   )
+//     .then((results) => res.send(results.data))
+//     .catch((err) => res.status(500).send(err.message));
+// });
 
 router.delete("/wardrobe/:id", function (req, res) {
   console.log(req.params, "is the params");
   db(`DELETE FROM wardrobe WHERE id=${req.params.id};`)
     .then((results) => res.send(results))
+    .catch((err) => res.status(500).send(err));
+});
+
+router.get("/wardrobe/suggestions", function (req, res, next) {
+  db(`SELECT * FROM suggestions;`)
+    .then((results) => res.send(results.data))
     .catch((err) => res.status(500).send(err));
 });
 

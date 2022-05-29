@@ -6,13 +6,6 @@ import Wardrobe from "./components/Wardrobe";
 import SuggestionsForm from "./components/SuggestionsForm";
 
 function App() {
-  //----original code-----/
-  // const [myWardrobe, setMyWardrobe] = useState(true);
-
-  // const handleWardrobeView = (myWardrobe) => {
-  //   setMyWardrobe(myWardrobe);
-  // };
-
   const [toggleState, setToggleState] = useState(1);
 
   const toggleTab = (index) => {
@@ -84,8 +77,6 @@ function App() {
             </div>
           </div>
         </div>
-
-        {/* {!myWardrobe ? <FormPage /> : <Wardrobe />} */}
       </body>
     </div>
   );

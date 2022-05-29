@@ -2,13 +2,20 @@ import React, { useState } from "react";
 import "../App.css";
 
 export default function SuggestionsForm() {
-  const [values, setValues] = useState({
-    brandName: "",
-    brandWebsite: "",
-    brandInfo: "",
-  });
+  //getSuggestions will fetch suggestions set in the sdb
+  // useEffect(() => {
+  //   getSuggestions();
+  // });
 
-  const [submited, setSubmitted] = useState(false);
+  const [values, setValues] = useState([
+    {
+      brandName: "",
+      brandWebsite: "",
+      brandInfo: "",
+    },
+  ]);
+
+  const [submitted, setSubmitted] = useState(false);
 
   const handleBrandNameInputChange = (event) => {
     setValues({ ...values, brandName: event.target.value });
@@ -36,7 +43,7 @@ export default function SuggestionsForm() {
         make a difference.{" "}
       </h5>
       <form class="suggestions-form" onSubmit={handleSubmitForm}>
-        {submited ? (
+        {submitted ? (
           <div className="success-message">
             {" "}
             Success! Thanks for your suggestion
