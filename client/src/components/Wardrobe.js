@@ -64,7 +64,7 @@ function Wardrobe() {
   }, []);
 
   const handleDelete = (event) => {
-    const response = fetch(`http://localhost:5005/wardrobe/${event}`, {
+    fetch(`http://localhost:5005/wardrobe/${event}`, {
       method: "DELETE",
     });
     setJackets([...jackets]);
@@ -213,6 +213,12 @@ function Wardrobe() {
                       >
                         Remove
                       </button>
+                      <button
+                        className="btn btn-outline-dark remove-button p-2"
+                        // onClick={() => handleDelete(oneShoes.id)}
+                      >
+                        Re-Home
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -242,6 +248,12 @@ function Wardrobe() {
                     >
                       Remove
                     </button>
+                    <button
+                      className="btn btn-outline-dark remove-button p-2"
+                      // onClick={() => handleDelete(oneShoes.id)}
+                    >
+                      Re-Home
+                    </button>
                   </div>
                 </div>
               );
@@ -269,6 +281,12 @@ function Wardrobe() {
                       onClick={() => handleDelete(oneBottoms.id)}
                     >
                       Remove
+                    </button>
+                    <button
+                      className="btn btn-outline-dark remove-button p-2"
+                      // onClick={() => handleDelete(oneShoes.id)}
+                    >
+                      Re-Home
                     </button>
                   </div>
                 </div>
@@ -298,6 +316,12 @@ function Wardrobe() {
                     >
                       Remove
                     </button>
+                    <button
+                      className="btn btn-outline-dark remove-button p-2"
+                      // onClick={() => handleDelete(oneShoes.id)}
+                    >
+                      Re-Home
+                    </button>
                   </div>
                 </div>
               );
@@ -325,6 +349,12 @@ function Wardrobe() {
                       onClick={() => handleDelete(oneShoes.id)}
                     >
                       Remove
+                    </button>
+                    <button
+                      className="btn btn-outline-dark remove-button p-2"
+                      // onClick={() => handleDelete(oneShoes.id)}
+                    >
+                      Re-Home
                     </button>
                   </div>
                 </div>

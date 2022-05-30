@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 
 export default function SuggestionsForm() {
-  //getSuggestions will fetch suggestions set in the sdb
-  // useEffect(() => {
-  //   getSuggestions();
-  // });
+  // getSuggestions will fetch suggestions set in the db
+  useEffect(() => {
+    getSuggestions();
+  });
 
-  const [values, setValues] = useState([
-    {
-      brandName: "",
-      brandWebsite: "",
-      brandInfo: "",
-    },
-  ]);
+  // const [values, setValues] = useState([
+  //   {
+  //     brandName: "",
+  //     brandWebsite: "",
+  //     brandInfo: "",
+  //   },
+  // ]);
+  /*----------STATE----------*/
 
-  const [submitted, setSubmitted] = useState(false);
+  const [values, setValues] = useState([]); //values tracking input value change
+
+  const [submitted, setSubmitted] = useState(false); //checks if form is submitted for success message
+
+  const [input, setInput] = useState([]);
+
+  /*----------INPUT CHANGE----------*/
 
   const handleBrandNameInputChange = (event) => {
     setValues({ ...values, brandName: event.target.value });
@@ -28,21 +35,38 @@ export default function SuggestionsForm() {
   const handleBrandInfoInputChange = (event) => {
     setValues({ ...values, brandInfo: event.target.value });
   };
+  /*----------SUBMIT FORM----------*/
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
-    setSubmitted(true);
+    setSubmitted(true); // submitted is true so success message displays
   };
 
+  /*------------------------INFORMATION COMING FROM DB WHICH IS SET IN BACKENED (suggestions.js)-----------------------*/
+
+  //fetch array of suggestions objects from DB
+  const getSuggestions = () => {
+    fetch("/suggestions")
+      .then((response) => response.json())
+      .then((input) => {
+        setInput(input); //add all values to the setValues state
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  /*------------------------JSX/HTML-----------------------*/
+
   return (
-    <div class="suggestions-form-container">
+    <div className="suggestions-form-container">
       <h5>
         {" "}
         Knowledge is power! Help others who are looking to find sustainable
         clothing brands. Use this form to your add favorite brand, and let's
         make a difference.{" "}
       </h5>
-      <form class="suggestions-form" onSubmit={handleSubmitForm}>
+      <form className="suggestions-form" onSubmit={handleSubmitForm}>
         {submitted ? (
           <div className="success-message">
             {" "}

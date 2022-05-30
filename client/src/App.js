@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import FormPage from "./components/Form";
 import Wardrobe from "./components/Wardrobe";
 import SuggestionsForm from "./components/SuggestionsForm";
+import ReHome from "./components/ReHome";
 
 function App() {
   const [toggleState, setToggleState] = useState(1);
@@ -54,6 +55,14 @@ function App() {
                 >
                   Brand Suggestions
                 </button>
+                <button
+                  className={
+                    toggleState === 4 ? "btn btn-dark" : "btn btn-light"
+                  }
+                  onClick={() => toggleTab(4)}
+                >
+                  Re-Home
+                </button>
               </div>
             </nav>
           </div>
@@ -69,11 +78,13 @@ function App() {
               </p>
             </div>
 
-            <div className="col col-lg-2">
+            {/* <div className="col col-lg-2"> */}
+            <div>
               {/* {toggleState === 1 ? <Wardrobe /> : <FormPage />} */}
               {toggleState === 1 && <Wardrobe />}
               {toggleState === 2 && <FormPage />}
               {toggleState === 3 && <SuggestionsForm />}
+              {toggleState === 4 && <ReHome />}
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ var router = express.Router();
 var db = require("../model/helper");
 
 // Post to suggestions
-
+//http://localhost:5005/suggestions
 router.post("/", function (req, res, next) {
   console.log("req.body", req.body);
   db(
@@ -15,12 +15,21 @@ router.post("/", function (req, res, next) {
 });
 
 // Get all suggestions
-
+//http://localhost:5005/suggestions
 router.get("/", function (req, res, next) {
   db("SELECT * FROM suggestions;")
     .then((results) => {
       res.send(results.data);
     })
+    .catch((err) => res.status(500).send(err));
+});
+
+// delete suggestion by id
+
+router.delete("/:id", function (req, res) {
+  console.log(req.params, "is the params");
+  db(`DELETE FROM suggestions WHERE id=${req.params.id};`)
+    .then((results) => res.send(results))
     .catch((err) => res.status(500).send(err));
 });
 
