@@ -69,6 +69,10 @@ function Wardrobe() {
     });
     setJackets([...jackets]);
   };
+  //Handle for Re-Home button
+  const handleReHome = (event) => {
+    console.log("Re-Home button clicked!");
+  };
 
   const [jacketsButton, setJacketsButton] = useState(false);
   const handleJacketsButton = (jacketsButton) => {
@@ -214,8 +218,8 @@ function Wardrobe() {
                         Remove
                       </button>
                       <button
-                        className="btn btn-outline-dark remove-button p-2"
-                        // onClick={() => handleDelete(oneShoes.id)}
+                        className="btn btn-outline-dark "
+                        onClick={handleReHome}
                       >
                         Re-Home
                       </button>
@@ -250,7 +254,7 @@ function Wardrobe() {
                     </button>
                     <button
                       className="btn btn-outline-dark remove-button p-2"
-                      // onClick={() => handleDelete(oneShoes.id)}
+                      onClick={handleReHome}
                     >
                       Re-Home
                     </button>
@@ -283,8 +287,8 @@ function Wardrobe() {
                       Remove
                     </button>
                     <button
-                      className="btn btn-outline-dark remove-button p-2"
-                      // onClick={() => handleDelete(oneShoes.id)}
+                      className="btn btn-outline-dark"
+                      onClick={handleReHome}
                     >
                       Re-Home
                     </button>
@@ -317,8 +321,8 @@ function Wardrobe() {
                       Remove
                     </button>
                     <button
-                      className="btn btn-outline-dark remove-button p-2"
-                      // onClick={() => handleDelete(oneShoes.id)}
+                      className="btn btn-outline-dark "
+                      onClick={handleReHome}
                     >
                       Re-Home
                     </button>
@@ -351,8 +355,8 @@ function Wardrobe() {
                       Remove
                     </button>
                     <button
-                      className="btn btn-outline-dark remove-button p-2"
-                      // onClick={() => handleDelete(oneShoes.id)}
+                      className="btn btn-outline-dark"
+                      onClick={handleReHome}
                     >
                       Re-Home
                     </button>
