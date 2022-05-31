@@ -4,23 +4,27 @@ import "../App.css";
 export default function SuggestionsForm() {
   // getSuggestions will fetch suggestions set in the db
   useEffect(() => {
-    getSuggestions();
-  });
+    fetch("http://localhost:5005/suggestions")
+      .then((response) => response.json())
+      .then((suggestions) => {
+        setSuggestions(suggestions); //add all values to the setValues state
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-  // const [values, setValues] = useState([
-  //   {
-  //     brandName: "",
-  //     brandWebsite: "",
-  //     brandInfo: "",
-  //   },
-  // ]);
   /*----------STATE----------*/
 
-  const [values, setValues] = useState([]); //values tracking input value change
+  const [values, setValues] = useState({
+    brandName: "",
+    brandWebsite: "",
+    brandInfo: "",
+  }); //values tracking input value change //formValues???
 
   const [submitted, setSubmitted] = useState(false); //checks if form is submitted for success message
 
-  const [input, setInput] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
 
   /*----------INPUT CHANGE----------*/
 
@@ -39,21 +43,23 @@ export default function SuggestionsForm() {
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
-    setSubmitted(true); // submitted is true so success message displays
-  };
 
-  /*------------------------INFORMATION COMING FROM DB WHICH IS SET IN BACKENED (suggestions.js)-----------------------*/
-
-  //fetch array of suggestions objects from DB
-  const getSuggestions = () => {
-    fetch("/suggestions")
-      .then((response) => response.json())
-      .then((input) => {
-        setInput(input); //add all values to the setValues state
+    fetch("/suggestions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      //if successful, set info to blank in the input field
+      .then((r) => r.json()) //r = response
+      .then((updatedSuggestions) => {
+        //array of suggestions
+        setSuggestions(updatedSuggestions); //setSuggestions is working as a function and and setting the updatedSuggestions as the values of the suggestions variable
+        setSubmitted(true); // submitted is true so success message displays
+        console.log("suggestions", suggestions);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((err) => console.error(err));
   };
 
   /*------------------------JSX/HTML-----------------------*/
@@ -105,6 +111,36 @@ export default function SuggestionsForm() {
           Submit
         </button>
       </form>
+      <div>
+        <div className="table-header">
+          <h4>SUGGESTIONS</h4>
+        </div>
+        <div className="table-container">
+          <table className="table">
+            {/* <div className="table-header"></div> */}
+            <thead>
+              <tr className="table-dark">
+                <th scope="col">Brand Name</th>
+                <th scope="col">Website</th>
+                <th scope="col">Info</th>
+              </tr>
+            </thead>
+            <tbody>
+              {suggestions.map((suggestion) => {
+                return (
+                  <tr key={suggestion.id}>
+                    <td className="table-light">{suggestion.brand_name}</td>
+
+                    <td className="table-light">{suggestion.brand_website}</td>
+
+                    <td className="table-light">{suggestion.brand_info}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

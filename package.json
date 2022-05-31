@@ -19,5 +19,6 @@
     "nodemon": "^2.0.16",
     "path-browserify": "^1.0.1",
     "stream-browserify": "^3.0.0"
-  }
+  },
+  "proxy": "http://localhost/5005"
 }
