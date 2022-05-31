@@ -6,6 +6,7 @@ function Wardrobe() {
   const [bottoms, setBottoms] = useState([]);
   const [allInOnes, setAllInOnes] = useState([]);
   const [shoes, setShoes] = useState([]);
+  const [reHomeClothes, setReHomeClothes] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -69,11 +70,30 @@ function Wardrobe() {
     });
     setJackets([...jackets]);
   };
+
+  //-------------------------------------REHOME-----------------------------------------//
   //Handle for Re-Home button
   const handleReHome = (event) => {
     console.log("Re-Home button clicked!");
+    reHome(event);
   };
 
+  const reHome = (clothes) => {
+    fetch(`/wardrobe/${clothes.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        complete: !clothes.complete,
+      }),
+    })
+      .then((res) => res.json()) //first response and needs to be converted to json
+      .then((updatedReHomeClothes) => setReHomeClothes(updatedReHomeClothes))
+      .catch((e) => console.error(e));
+  };
+
+  //------------------------------------------------------------------------------//
   const [jacketsButton, setJacketsButton] = useState(false);
   const handleJacketsButton = (jacketsButton) => {
     setJacketsButton(jacketsButton);
@@ -367,7 +387,16 @@ function Wardrobe() {
           </div>
         </div>
       ) : (
-        <div> </div>
+        <div>
+          REHOME TEST
+          {reHomeClothes.map((rehome) => {
+            return (
+              <tr key={rehome.id}>
+                <td className="table-light">{rehome.clothesCategory}</td>
+              </tr>
+            );
+          })}
+        </div>
       )}
     </div>
   );
