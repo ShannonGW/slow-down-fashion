@@ -8,6 +8,7 @@ export default function SuggestionsForm() {
       .then((response) => response.json())
       .then((suggestions) => {
         setSuggestions(suggestions); //add all values to the setValues state
+        console.log("suggestions", suggestions);
       })
       .catch((error) => {
         console.log(error);
@@ -44,7 +45,7 @@ export default function SuggestionsForm() {
   const handleSubmitForm = (event) => {
     event.preventDefault();
 
-    fetch("/suggestions", {
+    fetch("http://localhost:5005/suggestions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,6 +59,7 @@ export default function SuggestionsForm() {
         setSuggestions(updatedSuggestions); //setSuggestions is working as a function and and setting the updatedSuggestions as the values of the suggestions variable
         setSubmitted(true); // submitted is true so success message displays
         console.log("suggestions", suggestions);
+        console.log("updatedSuggestions", updatedSuggestions);
       })
       .catch((err) => console.error(err));
   };
