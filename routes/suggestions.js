@@ -8,7 +8,7 @@ var db = require("../model/helper");
 router.post("/", function (req, res, next) {
   console.log("req.body", req.body);
   db(
-    `INSERT INTO suggestions (brand_name, brand_website, brand_info) VALUES ("${req.body.brand_name}", "${req.body.brand_website}", "${req.body.brand_info}");`
+    `INSERT INTO suggestions (brand_name, brand_website, brand_info) VALUES ("${req.body.brandName}", "${req.body.brandWebsite}", "${req.body.brandInfo}");`
   );
   db("SELECT * FROM suggestions;")
     .then((results) => res.send(results.data))

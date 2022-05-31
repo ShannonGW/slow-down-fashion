@@ -86,3 +86,8 @@ button:disabled {
 body {
   background-color: #f7f4eb;
 }
+
+h4 {
+  display: flex;
+  justify-content: center;
+}
