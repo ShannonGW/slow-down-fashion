@@ -8,10 +8,28 @@ import ReHome from "./components/ReHome";
 
 function App() {
   const [toggleState, setToggleState] = useState(1);
+  const [reHomeItems, setReHomeItems] = useState([]);
 
   const toggleTab = (index) => {
     setToggleState(index); //setting state with the index of the tabs
     console.log("toggleTab", index);
+  };
+
+  const reHome = (clothingItem) => {
+    fetch(`http://localhost:5005/wardrobe/${clothingItem.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        complete: !clothingItem.complete,
+      }),
+    })
+      .then((res) => res.json()) //first response and needs to be converted to json
+      .then((updatedReHomeClothes) => setReHomeItems(updatedReHomeClothes))
+      .catch((e) => console.error(e));
+
+    console.log("clothingItem in App.js", clothingItem);
   };
 
   return (
@@ -81,10 +99,12 @@ function App() {
             {/* <div className="col col-lg-2"> */}
             <div>
               {/* {toggleState === 1 ? <Wardrobe /> : <FormPage />} */}
-              {toggleState === 1 && <Wardrobe />}
+              {toggleState === 1 && (
+                <Wardrobe reHomeCB={(clothingItem) => reHome(clothingItem)} />
+              )}
               {toggleState === 2 && <FormPage />}
               {toggleState === 3 && <SuggestionsForm />}
-              {toggleState === 4 && <ReHome />}
+              {toggleState === 4 && <ReHome reHomeItems={reHomeItems} />}
             </div>
           </div>
         </div>

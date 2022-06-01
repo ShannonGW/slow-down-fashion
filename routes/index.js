@@ -56,9 +56,11 @@ router.put("/wardrobe/:id", (req, res) => {
   db(
     `UPDATE wardrobe SET complete = ${req.body.complete}  WHERE id = ${req.params.id};`
   ).then(() => {
-    db("SELECT * FROM wardrobe ORDER BY id ASC;").then((results) => {
-      res.send(results.data);
-    });
+    db("SELECT * FROM wardrobe WHERE complete = 1 ORDER BY id ASC;").then(
+      (results) => {
+        res.send(results.data);
+      }
+    );
   });
 });
 
