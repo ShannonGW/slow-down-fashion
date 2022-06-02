@@ -215,7 +215,7 @@ function Wardrobe({ reHomeCB }) {
                         className="image-size rounded p-2"
                         src={oneJacket.clothesImage}
                         alt={oneJacket.id}
-                        onClick={() => handleOutfit(oneJacket)}
+                        onClick={() => handleReHome(oneJacket)}
                       />
                       <button
                         className="btn btn-outline-danger remove-button p-2"
@@ -225,7 +225,7 @@ function Wardrobe({ reHomeCB }) {
                       </button>
                       <button
                         className="btn btn-outline-dark "
-                        onClick={(oneJacket) => handleReHome(oneJacket)}
+                        onClick={() => handleReHome(oneJacket)}
                       >
                         Re-Home
                       </button>
@@ -294,7 +294,7 @@ function Wardrobe({ reHomeCB }) {
                     </button>
                     <button
                       className="btn btn-outline-dark"
-                      onClick={handleReHome}
+                      onClick={() => handleReHome(oneBottoms)}
                     >
                       Re-Home
                     </button>
@@ -328,7 +328,7 @@ function Wardrobe({ reHomeCB }) {
                     </button>
                     <button
                       className="btn btn-outline-dark "
-                      onClick={handleReHome}
+                      onClick={() => handleReHome(oneAllInOne)}
                     >
                       Re-Home
                     </button>
@@ -362,7 +362,7 @@ function Wardrobe({ reHomeCB }) {
                     </button>
                     <button
                       className="btn btn-outline-dark"
-                      onClick={handleReHome}
+                      onClick={() => handleReHome(oneShoes)}
                     >
                       Re-Home
                     </button>
@@ -375,7 +375,6 @@ function Wardrobe({ reHomeCB }) {
       ) : (
         <div>
           {/* ------------------------------------- */}
-          REHOME TEST
           {reHomeClothes.map((rehome) => {
             return (
               <tr key={rehome.id}>
