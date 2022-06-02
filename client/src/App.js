@@ -44,8 +44,6 @@ function App() {
             <nav>
               <div className="col nav justify-content-end">
                 <button
-                  // className={myWardrobe ? "btn btn-dark" : "btn btn-light"}
-                  // onClick={() => handleWardrobeView(true)}
                   className={
                     toggleState === 1 ? "btn btn-dark" : "btn btn-light" //if index is 1 (tab 1), dark button --just changes button color
                   }
@@ -54,8 +52,6 @@ function App() {
                   My Wardrobe
                 </button>
                 <button
-                  // className={!myWardrobe ? "btn btn-dark" : "btn btn-light"}
-                  // onClick={() => handleWardrobeView(false)}
                   className={
                     toggleState === 2 ? "btn btn-dark" : "btn btn-light"
                   }
@@ -64,8 +60,6 @@ function App() {
                   Add item
                 </button>
                 <button
-                  // className={!myWardrobe ? "btn btn-dark" : "btn btn-light"}
-                  // onClick={() => handleWardrobeView(false)}
                   className={
                     toggleState === 3 ? "btn btn-dark" : "btn btn-light"
                   }
@@ -96,9 +90,7 @@ function App() {
               </p>
             </div>
 
-            {/* <div className="col col-lg-2"> */}
             <div>
-              {/* {toggleState === 1 ? <Wardrobe /> : <FormPage />} */}
               {toggleState === 1 && (
                 <Wardrobe reHomeCB={(clothingItem) => reHome(clothingItem)} />
               )}
