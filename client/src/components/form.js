@@ -63,7 +63,6 @@ function Form() {
                     <input
                       type="URL"
                       name="imageUpload"
-                      // onChange={(e) => setImage(e.target.value)}
                       onChange={handleImageUpload}
                       className="mt-4"
                     ></input>

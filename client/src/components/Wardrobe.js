@@ -6,7 +6,6 @@ function Wardrobe({ reHomeCB }) {
   const [bottoms, setBottoms] = useState([]);
   const [allInOnes, setAllInOnes] = useState([]);
   const [shoes, setShoes] = useState([]);
-  const [reHomeClothes, setReHomeClothes] = useState([]); //set array of clothes that will be rehomed ********
 
   useEffect(() => {
     async function fetchData() {
@@ -14,7 +13,7 @@ function Wardrobe({ reHomeCB }) {
         "http://localhost:5005/wardrobe/item/jacket"
       );
       const results = await response.json();
-      console.log(results);
+      // console.log(results);
       setJackets(results);
     }
     fetchData();
@@ -24,7 +23,7 @@ function Wardrobe({ reHomeCB }) {
     async function fetchData() {
       const response = await fetch("http://localhost:5005/wardrobe/item/top");
       const results = await response.json();
-      console.log(results);
+      // console.log(results);
       setTops(results);
     }
     fetchData();
@@ -36,7 +35,7 @@ function Wardrobe({ reHomeCB }) {
         "http://localhost:5005/wardrobe/item/bottoms"
       );
       const results = await response.json();
-      console.log(results);
+      // console.log(results);
       setBottoms(results);
     }
     fetchData();
@@ -48,7 +47,7 @@ function Wardrobe({ reHomeCB }) {
         "http://localhost:5005/wardrobe/item/allinone"
       );
       const results = await response.json();
-      console.log(results);
+      // console.log(results);
       setAllInOnes(results);
     }
     fetchData();
@@ -58,7 +57,7 @@ function Wardrobe({ reHomeCB }) {
     async function fetchData() {
       const response = await fetch("http://localhost:5005/wardrobe/item/shoes");
       const results = await response.json();
-      console.log(results);
+      // console.log(results);
       setShoes(results);
     }
     fetchData();
@@ -384,18 +383,7 @@ function Wardrobe({ reHomeCB }) {
           </div>
         </div>
       ) : (
-        <div>
-          {/* ------------------------------------- */}
-          {/* items marked as 0 for complete should stay in wardrobe and 1 should be 'rehomed' and removed from wardrobe" */}
-          {reHomeClothes //array of clothes that will be rehomed
-            .map((rehome) => {
-              return (
-                <tr key={rehome.id}>
-                  <td className="table-light">{rehome.clothesCategory}</td>
-                </tr>
-              );
-            })}
-        </div>
+        <div></div>
       )}
     </div>
   );
