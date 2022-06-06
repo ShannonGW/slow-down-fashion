@@ -58,10 +58,11 @@ function Form() {
                   onChange={handleCategoryChange}
                 >
                   <option defaultValue>Choose a Category</option>
-                  <option>Top</option>
+                  <option value="tops">Tops</option>
                   <option value="bottoms">Bottoms</option>
                   <option value="allInOne">All In One</option>
                   <option value="shoes">Shoes</option>
+                  <option value="jackets">Jackets</option>
                 </select>
                 <label> Clothes Category</label>
               </div>

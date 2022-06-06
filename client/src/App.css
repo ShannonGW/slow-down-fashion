@@ -77,12 +77,6 @@ button {
   cursor: pointer;
 }
 
-button form-submit {
-  background: blueviolet;
-  color: white;
-  cursor: pointer;
-}
-
 button:disabled {
   cursor: default;
 }
@@ -94,6 +88,7 @@ body {
 h4 {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 h3 {
   display: flex;
@@ -184,5 +179,9 @@ p {
 }
 
 th {
+  text-align: center;
+}
+
+h5 {
   text-align: center;
 }

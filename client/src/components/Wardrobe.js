@@ -288,7 +288,7 @@ function Wardrobe({ reHomeCB }) {
               .map((oneBottoms, index) => {
                 return (
                   <div key={oneBottoms.id} className="col">
-                    <div className="d-flex flex-column mb-3">
+                    <div className="image-buttons">
                       <img
                         className="shadow image-size rounded"
                         src={oneBottoms.clothesImage}
@@ -296,7 +296,6 @@ function Wardrobe({ reHomeCB }) {
                         onClick={() => handleOutfit(oneBottoms)}
                       />
                       <div>
-                        {" "}
                         <button
                           className="btn btn-outline-danger remove-button p-2"
                           onClick={() => handleDelete(oneBottoms.id)}
@@ -327,7 +326,8 @@ function Wardrobe({ reHomeCB }) {
               .map((oneAllInOne, index) => {
                 return (
                   <div key={oneAllInOne.id} className="col">
-                    <div className="d-flex flex-column mb-3">
+                    <div className="image-buttons">
+                      {" "}
                       <img
                         className="shadow image-size rounded "
                         src={oneAllInOne.clothesImage}
@@ -365,7 +365,8 @@ function Wardrobe({ reHomeCB }) {
               .map((oneShoes, index) => {
                 return (
                   <div key={oneShoes.id}>
-                    <div className="d-flex flex-column mb-3">
+                    <div className="image-buttons">
+                      {" "}
                       <img
                         className="shadow image-size rounded "
                         src={oneShoes.clothesImage}

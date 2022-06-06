@@ -68,12 +68,11 @@ export default function SuggestionsForm() {
 
   return (
     <div className="suggestions-form-container">
-      <h5>
-        {" "}
+      <h4>
         Knowledge is power! Help others who are looking to find sustainable
         clothing brands. Use this form to your add favorite brand, and let's
-        make a difference.{" "}
-      </h5>
+        make a difference.
+      </h4>
       <form className="suggestions-form" onSubmit={handleSubmitForm}>
         {submitted ? (
           <div className="success-message">
