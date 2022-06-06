@@ -63,10 +63,15 @@ function App() {
         <div className="row">
           <div className="col justify-content-md-center ">
             {/* HEADING */}
-            <h1 className="heading-font mt-3">Slow Down Fashion</h1>
+            {/* <h1 className="heading-font">Slow Down Fashion</h1>
+            <p className="mt-2 text-center heading-font">
+              {" "}
+              Help save the planet by finding a new love <br></br>for your
+              existing clothes
+            </p> */}
           </div>
           <nav>
-            <div className="col nav justify-content-end">
+            <div className="nav">
               <button
                 className={
                   toggleState === 1 ? "btn btn-dark" : "btn btn-light" //if index is 1 (tab 1), dark button --just changes button color
@@ -95,17 +100,23 @@ function App() {
               </button>
             </div>
           </nav>
+          <h1 className="heading-font">Slow Down Fashion</h1>
+          <p className="mt-2 text-center heading-font">
+            {" "}
+            Help save the planet by finding a new love <br></br>for your
+            existing clothes
+          </p>
         </div>
       </div>
 
       <div className="container">
         <div className="row justify-content-md-center">
           <div className="d-flex flex-row">
-            <p className="mt-2 text-center heading-font">
+            {/* <p className="mt-2 text-center heading-font">
               {" "}
               Help save the planet by finding a new love <br></br>for your
               existing clothes
-            </p>
+            </p> */}
           </div>
           {/* //-------------------------------PASSING PROPS---------------------------------------// */}
           <div>

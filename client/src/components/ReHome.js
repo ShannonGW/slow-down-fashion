@@ -9,24 +9,29 @@ export default function ReHome({ reHomeItems, reHomeCB }) {
   };
 
   return (
-    <div>
+    <div className="container">
       <h5>Give clothes a second chance by re-homing them.</h5>
 
-      {reHomeItems.map((item) => (
-        <div>
-          <img
-            className="image-size rounded"
-            src={item.clothesImage}
-            alt={item.id}
-          />
-          <button
-            className="btn btn-outline-danger"
-            onClick={() => handleUndoReHome(item)}
-          >
-            Undo
-          </button>
+      <div className="container">
+        <div className="row row-cols-3">
+          {reHomeItems.map((item) => (
+            <div className="rehome-grid">
+              <img
+                className=" shadow image-size rounded"
+                src={item.clothesImage}
+                alt={item.id}
+              />
+              <button
+                id="undo"
+                className="btn btn-danger"
+                onClick={() => handleUndoReHome(item)}
+              >
+                Undo
+              </button>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }
