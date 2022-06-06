@@ -64,26 +64,4 @@ router.put("/wardrobe/:id", (req, res) => {
   });
 });
 
-// router.put("/rehome", (req, res) => {
-//   //variable names need to match front end
-//   const clothesCategory = req.bodyclothesCategory;
-//   const clothesImage = req.body.clothesImage;
-
-//   console.log(req.body);
-//   db(
-//     `UPDATE users SET task_id = ${task_id}  WHERE id = ${user_id} OR id = ${user_id2};`
-//   ).then(() => {
-//     db(`SELECT group_concat(users.user_name separator ' and ') as users,
-//         tasks.task_name
-//         FROM users
-//         INNER JOIN tasks ON tasks.id = users.task_id
-//         WHERE users.task_id is not null
-//        GROUP BY task_name;`)
-//       .then((results) => {
-//         res.send(results.data);
-//       })
-//       .catch((err) => res.status(500).send(err));
-//   });
-// });
-
 module.exports = router;

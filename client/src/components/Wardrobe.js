@@ -214,23 +214,25 @@ function Wardrobe({ reHomeCB }) {
                     <div key={index}>
                       <div className="d-flex flex-column mb-3">
                         <img
-                          className="image-size rounded p-2"
+                          className="shadow image-size rounded p-2"
                           src={oneJacket.clothesImage}
                           alt={oneJacket.id}
                           onClick={() => handleReHome(oneJacket)}
                         />
-                        <button
-                          className="btn btn-outline-danger remove-button p-2"
-                          onClick={() => handleDelete(oneJacket.id)}
-                        >
-                          Remove
-                        </button>
-                        <button
-                          className="btn btn-outline-dark "
-                          onClick={() => handleReHome(oneJacket)}
-                        >
-                          Re-Home
-                        </button>
+                        <div className="hstack gap-3">
+                          <button
+                            className="btn btn-outline-danger remove-button p-2"
+                            onClick={() => handleDelete(oneJacket.id)}
+                          >
+                            Remove
+                          </button>
+                          <button
+                            className="btn btn-outline-dark rehome-button  "
+                            onClick={() => handleReHome(oneJacket)}
+                          >
+                            Re-Home
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -251,7 +253,7 @@ function Wardrobe({ reHomeCB }) {
                   <div key={index} className="col">
                     <div className="d-flex flex-column mb-3">
                       <img
-                        className="image-size rounded"
+                        className="shadow image-size rounded p-2"
                         src={oneTop.clothesImage}
                         alt={oneTop.id}
                         onClick={() => handleOutfit(oneTop)}
@@ -263,7 +265,7 @@ function Wardrobe({ reHomeCB }) {
                         Remove
                       </button>
                       <button
-                        className="btn btn-outline-dark remove-button p-2"
+                        className="btn btn-outline-dark rehome-button p-2"
                         onClick={() => handleReHome(oneTop)}
                       >
                         Re-Home
@@ -287,7 +289,7 @@ function Wardrobe({ reHomeCB }) {
                   <div key={index} className="col">
                     <div className="d-flex flex-column mb-3">
                       <img
-                        className="image-size rounded"
+                        className="shadow image-size rounded p-2"
                         src={oneBottoms.clothesImage}
                         alt={oneBottoms.id}
                         onClick={() => handleOutfit(oneBottoms)}
@@ -299,7 +301,7 @@ function Wardrobe({ reHomeCB }) {
                         Remove
                       </button>
                       <button
-                        className="btn btn-outline-dark"
+                        className="btn btn-outline-dark rehome-button "
                         onClick={() => handleReHome(oneBottoms)}
                       >
                         Re-Home
@@ -323,7 +325,7 @@ function Wardrobe({ reHomeCB }) {
                   <div key={index} className="col">
                     <div className="d-flex flex-column mb-3">
                       <img
-                        className="image-size rounded"
+                        className="shadow image-size rounded p-2"
                         src={oneAllInOne.clothesImage}
                         alt={oneAllInOne.id}
                         onClick={() => handleOutfit(oneAllInOne)}
@@ -335,7 +337,7 @@ function Wardrobe({ reHomeCB }) {
                         Remove
                       </button>
                       <button
-                        className="btn btn-outline-dark "
+                        className="btn btn-outline-dark rehome-button  "
                         onClick={() => handleReHome(oneAllInOne)}
                       >
                         Re-Home
@@ -356,10 +358,10 @@ function Wardrobe({ reHomeCB }) {
               .filter((oneShoe) => oneShoe.complete === 0)
               .map((oneShoes, index) => {
                 return (
-                  <div key={index} className="col">
+                  <div key={index}>
                     <div className="d-flex flex-column mb-3">
                       <img
-                        className="image-size rounded"
+                        className="shadow image-size rounded p-2"
                         src={oneShoes.clothesImage}
                         alt={oneShoes.id}
                         onClick={() => handleOutfit(oneShoes)}
@@ -371,7 +373,7 @@ function Wardrobe({ reHomeCB }) {
                         Remove
                       </button>
                       <button
-                        className="btn btn-outline-dark"
+                        className="btn btn-outline-dark rehome-button "
                         onClick={() => handleReHome(oneShoes)}
                       >
                         Re-Home
