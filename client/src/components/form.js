@@ -73,41 +73,45 @@ function Form() {
 
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="row g-2">
-          <div className="col-md">
-            <div className="form-floating">
-              <input
-                type="text"
-                className="form-control"
-                id="floatingInputGrid"
-                placeholder="www.example.com"
-                onChange={handleImageUpload}
-                name="imageUpload"
-              />
-              <label>Image URL</label>
+        <div>
+          <div className="row g-2">
+            <div className="col-md">
+              <div className="form-floating">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="floatingInputGrid"
+                  placeholder="www.example.com"
+                  onChange={handleImageUpload}
+                  name="imageUpload"
+                />
+                <label>Image URL</label>
+              </div>
+            </div>
+            <div className="col-md">
+              <div className="form-floating">
+                <select
+                  className="form-select"
+                  id="floatingSelectGrid"
+                  value={category}
+                  onChange={handleCategoryChange}
+                >
+                  <option defaultValue>Choose a Category</option>
+                  <option>Top</option>
+                  <option value="bottoms">Bottoms</option>
+                  <option value="allInOne">All In One</option>
+                  <option value="shoes">Shoes</option>
+                </select>
+                <label> Clothes Category</label>
+              </div>
             </div>
           </div>
-          <div className="col-md">
-            <div className="form-floating">
-              <select
-                className="form-select"
-                id="floatingSelectGrid"
-                value={category}
-                onChange={handleCategoryChange}
-              >
-                <option defaultValue>Choose a Category</option>
-                <option>Top</option>
-                <option value="bottoms">Bottoms</option>
-                <option value="allInOne">All In One</option>
-                <option value="shoes">Shoes</option>
-              </select>
-              <label> Clothes Category</label>
-            </div>
+          <div className="submit">
+            <button type="submit" className="btn btn-dark button-size mt-4">
+              Submit
+            </button>
           </div>
         </div>
-        <button type="submit" className="btn btn-dark button-size mt-4">
-          Submit
-        </button>
       </form>
     </div>
   );

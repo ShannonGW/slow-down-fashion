@@ -132,7 +132,7 @@ function Wardrobe({ reHomeCB }) {
           <div className="col">
             {chosenOutfit.map((oneOutfit, index) => {
               return (
-                <div key={index}>
+                <div key={oneOutfit.id}>
                   <img
                     className="shadow chosenOutfit-size rounded"
                     src={oneOutfit.clothesImage}
@@ -208,12 +208,10 @@ function Wardrobe({ reHomeCB }) {
             {/* FILTERING THROUGH 'COMPLETE' */}
             {jackets
               .filter((oneJacket) => oneJacket.complete === 0)
-              .map((oneJacket, index) => {
+              .map((oneJacket) => {
                 return (
-                  <div className="col">
-                    <div key={index} className="image-buttons">
-                      {/* <div className="d-flex flex-column mb-2"> */}
-
+                  <div className="col" key={oneJacket.id}>
+                    <div className="image-buttons">
                       <img
                         className="shadow image-size rounded p-2"
                         src={oneJacket.clothesImage}
@@ -221,7 +219,6 @@ function Wardrobe({ reHomeCB }) {
                         onClick={() => handleReHome(oneJacket)}
                       />
                       <div>
-                        {/* <div className="hstack gap-3"> */}
                         <button
                           className="btn btn-outline-danger remove-button p-2"
                           onClick={() => handleDelete(oneJacket.id)}
@@ -251,7 +248,7 @@ function Wardrobe({ reHomeCB }) {
               .filter((oneTop) => oneTop.complete === 0)
               .map((oneTop, index) => {
                 return (
-                  <div key={index} className="col">
+                  <div key={oneTop.id} className="col">
                     <div className="d-flex flex-column mb-3">
                       <img
                         className="shadow image-size rounded p-2"
@@ -287,7 +284,7 @@ function Wardrobe({ reHomeCB }) {
               .filter((oneBottoms) => oneBottoms.complete === 0)
               .map((oneBottoms, index) => {
                 return (
-                  <div key={index} className="col">
+                  <div key={oneBottoms.id} className="col">
                     <div className="d-flex flex-column mb-3">
                       <img
                         className="shadow image-size rounded p-2"
@@ -323,7 +320,7 @@ function Wardrobe({ reHomeCB }) {
               .filter((oneAllInOne) => oneAllInOne.complete === 0)
               .map((oneAllInOne, index) => {
                 return (
-                  <div key={index} className="col">
+                  <div key={oneAllInOne.id} className="col">
                     <div className="d-flex flex-column mb-3">
                       <img
                         className="shadow image-size rounded p-2"
@@ -359,7 +356,7 @@ function Wardrobe({ reHomeCB }) {
               .filter((oneShoe) => oneShoe.complete === 0)
               .map((oneShoes, index) => {
                 return (
-                  <div key={index}>
+                  <div key={oneShoes.id}>
                     <div className="d-flex flex-column mb-3">
                       <img
                         className="shadow image-size rounded p-2"
