@@ -134,7 +134,7 @@ function Wardrobe({ reHomeCB }) {
               return (
                 <div key={index}>
                   <img
-                    className="chosenOutfit-size rounded"
+                    className="shadow chosenOutfit-size rounded"
                     src={oneOutfit.clothesImage}
                     alt={oneOutfit.id}
                     onClick={() => handleRemoveItem(oneOutfit)}
@@ -211,28 +211,29 @@ function Wardrobe({ reHomeCB }) {
               .map((oneJacket, index) => {
                 return (
                   <div className="col">
-                    <div key={index}>
-                      <div className="d-flex flex-column mb-3">
-                        <img
-                          className="shadow image-size rounded p-2"
-                          src={oneJacket.clothesImage}
-                          alt={oneJacket.id}
+                    <div key={index} className="image-buttons">
+                      {/* <div className="d-flex flex-column mb-2"> */}
+
+                      <img
+                        className="shadow image-size rounded p-2"
+                        src={oneJacket.clothesImage}
+                        alt={oneJacket.id}
+                        onClick={() => handleReHome(oneJacket)}
+                      />
+                      <div>
+                        {/* <div className="hstack gap-3"> */}
+                        <button
+                          className="btn btn-outline-danger remove-button p-2"
+                          onClick={() => handleDelete(oneJacket.id)}
+                        >
+                          Remove
+                        </button>
+                        <button
+                          className="btn btn-outline-dark rehome-button  "
                           onClick={() => handleReHome(oneJacket)}
-                        />
-                        <div className="hstack gap-3">
-                          <button
-                            className="btn btn-outline-danger remove-button p-2"
-                            onClick={() => handleDelete(oneJacket.id)}
-                          >
-                            Remove
-                          </button>
-                          <button
-                            className="btn btn-outline-dark rehome-button  "
-                            onClick={() => handleReHome(oneJacket)}
-                          >
-                            Re-Home
-                          </button>
-                        </div>
+                        >
+                          Re-Home
+                        </button>
                       </div>
                     </div>
                   </div>

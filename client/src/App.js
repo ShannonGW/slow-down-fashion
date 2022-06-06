@@ -42,11 +42,11 @@ function App() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        complete: !clothingItem.complete, // ********* ??? *********
+        complete: !clothingItem.complete,
       }),
     })
       .then((res) => res.json())
-      .then((updatedReHomeClothes) => setReHomeItems(updatedReHomeClothes)) // ********* ??? *********
+      .then((updatedReHomeClothes) => setReHomeItems(updatedReHomeClothes))
       //outcome of previous promise
 
       .catch((e) => console.error(e));

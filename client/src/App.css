@@ -31,8 +31,6 @@
   width: auto;
 }
 
-/* Suggestions Form Styling */
-
 .suggestions-form-container {
   width: 700px;
   background-color: white;
@@ -94,4 +92,35 @@ h4 {
 
 image {
   margin: 10px;
+}
+
+.image-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.remove-rehome-buttons {
+  margin: 20px;
+}
+
+.add-item-container {
+  width: 400px;
+  background-color: white;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.add-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown-option {
+  margin: 10px;
+  font-size: larger;
+  text-align: center;
 }
