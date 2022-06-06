@@ -27,7 +27,7 @@
 }
 
 .chosenOutfit-size {
-  height: 400px;
+  height: 350px;
   width: auto;
 }
 
@@ -73,6 +73,12 @@ input {
 }
 button {
   background: #202e4e;
+  color: white;
+  cursor: pointer;
+}
+
+button form-submit {
+  background: blueviolet;
   color: white;
   cursor: pointer;
 }
@@ -124,6 +130,7 @@ h3 {
   display: flex;
   justify-content: center;
 }
+
 form {
   margin: 30px;
 }
@@ -147,6 +154,7 @@ form {
 }
 
 .nav {
+  margin-top: 10px;
   justify-content: space-between;
   margin-bottom: 15px;
 }
@@ -161,4 +169,20 @@ p {
 
 .container {
   width: 1000px;
+}
+
+.outfit-container {
+  display: flex;
+  flex-direction: grid;
+}
+
+.outfit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 15px;
+  column-gap: 15px;
+}
+
+th {
+  text-align: center;
 }

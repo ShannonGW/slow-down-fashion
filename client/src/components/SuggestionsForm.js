@@ -115,7 +115,7 @@ export default function SuggestionsForm() {
       </form>
       <div>
         <div className="table-header">
-          <h4>SUGGESTIONS</h4>
+          <h3>SUGGESTIONS</h3>
         </div>
         <div className="table-container">
           <table className="table">

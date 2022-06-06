@@ -110,7 +110,7 @@ function Wardrobe({ reHomeCB }) {
     console.log(outfit, " is here");
     if (chosenOutfit.length === 0) setChosenOutfit([outfit]);
     else setChosenOutfit([...chosenOutfit, outfit]);
-    console.log("all chosen outfits\n ", chosenOutfit);
+    console.log("all chosen outfits ", chosenOutfit);
   };
 
   const handleRemoveItem = (event) => {
@@ -128,8 +128,8 @@ function Wardrobe({ reHomeCB }) {
   return (
     <div>
       <div className="container">
-        <div className=" justify-content-center">
-          <div className="col">
+        <div className="row justify-content-md-center mt-4 mb-4">
+          <div className="outfit-grid ">
             {chosenOutfit.map((oneOutfit, index) => {
               return (
                 <div key={oneOutfit.id}>
